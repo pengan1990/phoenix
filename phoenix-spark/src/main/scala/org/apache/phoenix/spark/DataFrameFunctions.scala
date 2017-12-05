@@ -57,7 +57,7 @@ class DataFrameFunctions(data: DataFrame) extends Serializable {
 
     // Save it
     phxRDD.saveAsNewAPIHadoopFile(
-      "",
+      conf.get("hadoop.mapreduce.output.fileoutputformat.outputdir"),
       classOf[NullWritable],
       classOf[PhoenixRecordWritable],
       classOf[PhoenixOutputFormat[PhoenixRecordWritable]],
